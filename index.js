@@ -23,11 +23,16 @@ const funnyMessages = [
 ];
 
 function calculateAge() {
-    const birthdate = document.getElementById("birthdate").value;
-    if (!birthdate) return;
 
+    // --- SAISIE MANUELLE ---
+    const d = document.getElementById("day").value;
+    const m = document.getElementById("month").value;
+    const y = document.getElementById("year").value;
+
+    if (!d || !m || !y) return;
+
+    const birth = new Date(`${y}-${m}-${d}`);
     const today = new Date();
-    const birth = new Date(birthdate);
 
     let years = today.getFullYear() - birth.getFullYear();
     let months = today.getMonth() - birth.getMonth();
