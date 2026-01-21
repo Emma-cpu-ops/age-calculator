@@ -156,22 +156,6 @@ button:hover {
     transform: scale(1.2);
 }
 
-/* Mobile */
-@media (max-width: 400px) {
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-    h1 {
-        font-size: 22px;
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Wrapper emoji + barre */
 #xpEmojiWrapper {
     display: flex;
@@ -244,4 +228,31 @@ button:hover {
     gap: 150px; /* avant 40px */
 }
 
+/* --- FORMAT TÉLÉPHONE --- */
+@media (max-width: 600px) {
+
+    /* Le layout passe en colonne */
+    #layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* La calculatrice reste centrée */
+    .container {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* Le robot devient plus petit et passe en dessous */
+    #robotSide {
+        width: 250px;
+        height: 250px;
+        margin-right: 0; /* enlève le décalage vers la droite */
+        justify-content: center;
+    }
+
+    #robot3D {
+        transform: scale(1); /* taille adaptée au mobile */
+    }
+}
 
