@@ -25,13 +25,19 @@ const funnyMessages = [
 function calculateAge() {
 
     // --- SAISIE MANUELLE ---
-    const d = document.getElementById("day").value;
-    const m = document.getElementById("month").value;
+    const d = document.getElementById("day").value.padStart(2, "0");
+    const m = document.getElementById("month").value.padStart(2, "0");
     const y = document.getElementById("year").value;
 
     if (!d || !m || !y) return;
 
     const birth = new Date(`${y}-${m}-${d}`);
+
+    if (isNaN(birth.getTime())) {
+        alert("Date invalide !");
+        return;
+    }
+
     const today = new Date();
 
     let years = today.getFullYear() - birth.getFullYear();
