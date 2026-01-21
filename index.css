@@ -42,21 +42,21 @@ h1 {
     font-size: 26px;
 }
 
-input {
+/* SAISIE MANUELLE */
+#manualDate {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#manualDate input {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
     border: 2px solid var(--input-border);
     font-size: 16px;
-    margin-bottom: 20px;
-    outline: none;
-    transition: 0.3s;
     background: transparent;
     color: var(--text);
-}
-
-input:focus {
-    border-color: var(--accent);
 }
 
 button {
@@ -114,10 +114,6 @@ button:hover {
     transition: 0.3s;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.2);
-}
-
 /* Wrapper emoji + barre */
 #xpEmojiWrapper {
     display: flex;
@@ -126,15 +122,12 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Emoji pixel */
 #ageEmoji {
     font-size: 32px;
     filter: contrast(200%) saturate(150%) brightness(90%);
     image-rendering: pixelated;
-    transform: translateY(-1px);
 }
 
-/* Barre XP */
 #xpBarContainer {
     flex: 1;
     height: 14px;
