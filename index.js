@@ -1,18 +1,13 @@
 document.getElementById("calcBtn").addEventListener("click", calculateAge);
 
 const ageEmojis = {
-    baby: "👶", 
-    kid: "🧒", 
-    teen: "🧑", 
-    adult: "🧑‍🦱", 
+    baby: "👶",
+    kid: "🧒",
+    teen: "🧑",
+    adult: "🧑‍🦱",
     old: "🧓"
 };
 
-
-// Avatar affiché dès le début
-document.getElementById("avatar").src = avatars.kid;
-
-// Messages aléatoires
 const funnyMessages = [
     "Tu gagnes +1 point de sagesse 🧙‍♂️",
     "Tu montes en niveau ! 🎉",
@@ -54,29 +49,21 @@ function calculateAge() {
     result.classList.add("show", "shake");
     setTimeout(() => result.classList.remove("shake"), 500);
 
-    // --- ANIMATION DU ROBOT SPLINE ---
-const robot = document.getElementById("robot3D");
-robot.classList.add("bump");
-setTimeout(() => robot.classList.remove("bump"), 200);
-
-
     // --- BARRE XP ---
-const xp = Math.min(years, 100);
-document.getElementById("xpBar").style.width = xp + "%";
+    const xp = Math.min(years, 100);
+    document.getElementById("xpBar").style.width = xp + "%";
 
-// --- EMOJI SELON L'ÂGE ---
-const emoji = document.getElementById("ageEmoji");
+    // --- EMOJI SELON L'ÂGE ---
+    const emoji = document.getElementById("ageEmoji");
 
-if (years <= 3) emoji.textContent = ageEmojis.baby;
-else if (years <= 12) emoji.textContent = ageEmojis.kid;
-else if (years <= 17) emoji.textContent = ageEmojis.teen;
-else if (years <= 50) emoji.textContent = ageEmojis.adult;
-else emoji.textContent = ageEmojis.old;
+    if (years <= 3) emoji.textContent = ageEmojis.baby;
+    else if (years <= 12) emoji.textContent = ageEmojis.kid;
+    else if (years <= 17) emoji.textContent = ageEmojis.teen;
+    else if (years <= 50) emoji.textContent = ageEmojis.adult;
+    else emoji.textContent = ageEmojis.old;
 
-// petite animation
-emoji.style.transform = "scale(1.3)";
-setTimeout(() => emoji.style.transform = "scale(1)", 200);
-
+    emoji.style.transform = "scale(1.3)";
+    setTimeout(() => emoji.style.transform = "scale(1)", 200);
 
     // Message RPG
     const npc = document.getElementById("npcMessage");
@@ -87,12 +74,14 @@ setTimeout(() => emoji.style.transform = "scale(1)", 200);
     if ([10, 13, 16, 18, 20, 25, 30, 40, 50].includes(years)) {
         result.innerHTML += `<br><strong style="color:#ff6600;">LEVEL UP ! 🔥</strong>`;
     }
+
+    // Animation robot
+    const robot = document.getElementById("robot3D");
+    robot.classList.add("bump");
+    setTimeout(() => robot.classList.remove("bump"), 200);
 }
 
-function toggleTheme() {
-    document.body.classList.toggle("dark");
-}
-
+/* Suppression watermark Spline */
 function removeSplineWatermark() {
     const viewer = document.querySelector("spline-viewer");
     if (!viewer) return;
@@ -109,6 +98,8 @@ function removeSplineWatermark() {
     });
 }
 
-// répéter car Spline recrée le watermark
 setInterval(removeSplineWatermark, 300);
-removeSplineWatermark();
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
