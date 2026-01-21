@@ -34,7 +34,12 @@
                 </div>
             </div>
 
-            <input type="date" id="birthdate">
+            <!-- SAISIE MANUELLE DE LA DATE -->
+            <div id="manualDate">
+                <input type="number" id="day" placeholder="Jour" min="1" max="31">
+                <input type="number" id="month" placeholder="Mois" min="1" max="12">
+                <input type="number" id="year" placeholder="Année" min="1900" max="2100">
+            </div>
 
             <button id="calcBtn">
                 <i class="fa-solid fa-sword"></i> Commencer l’aventure
